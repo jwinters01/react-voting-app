@@ -23,19 +23,19 @@ export function App() {
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <></>
+              <div></div>
             </Route>
             <Route path="/registration">
-              <></>
+              <div></div>
             </Route>
             <Route path="/voters">
-              <></>
+              <div></div>
             </Route>
             <Route path="/elections">
-              <></>
+              <div></div>
             </Route>
             <Route path="/elections/create">
-              <></>
+              <div></div>
             </Route>
           </Switch>
         </Provider>
