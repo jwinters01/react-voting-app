@@ -2,6 +2,7 @@ import { Provider } from 'react-redux';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
+import { Ballot } from './components/Ballot';
 import { votingAppStore } from './stores/votingAppStore';
 
 export function App() {
@@ -33,7 +34,7 @@ export function App() {
               <div></div>
             </Route>
             <Route path="/ballots/:id">
-              <div></div>
+              <Ballot />
             </Route>
             <Route path="/elections">
               <div></div>
