@@ -8,17 +8,18 @@ export function App() {
   return (
     <div className="container">
       <header id="page-header">
-        <h1>The Tools</h1>
+        <h1>Voting App</h1>
         <nav id="menubar">
-        <ul>
-          <li className="menuitem"><Link to="/">Home</Link></li>
-          <li className="menuitem"><Link to="/registration">Register</Link></li>
-          <li className="menuitem"><Link to="/voters">Voters</Link></li>
-          <li className="menuitem"><Link to="/elections">Elections</Link></li>
-          <li className="menuitem"><Link to="/elections/create">Create Election</Link></li>
-        </ul>
-      </nav>
+          <ul>
+            <li className="menuitem"><Link to="/">Home</Link></li>
+            <li className="menuitem"><Link to="/registration">Register</Link></li>
+            <li className="menuitem"><Link to="/voters">Voters</Link></li>
+            <li className="menuitem"><Link to="/elections">Elections</Link></li>
+            <li className="menuitem"><Link to="/elections/create">Create Election</Link></li>
+          </ul>
+        </nav>
       </header>
+
       <main id="content">
         <Provider store={votingAppStore}>
           <Switch>
@@ -31,10 +32,16 @@ export function App() {
             <Route path="/voters">
               <div></div>
             </Route>
+            <Route path="/ballots/:id">
+              <div></div>
+            </Route>
             <Route path="/elections">
               <div></div>
             </Route>
             <Route path="/elections/create">
+              <div></div>
+            </Route>
+            <Route path="/elections/:id">
               <div></div>
             </Route>
           </Switch>
