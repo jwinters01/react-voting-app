@@ -9399,8 +9399,8 @@
   "version" "17.0.1"
 
 "react-redux@^7.2.5":
-  "integrity" "sha512-Dt29bNyBsbQaysp6s/dN0gUodcq+dVKKER8Qv82UrpeygwYeX1raTtil7O/fftw/rFqzaf6gJhDZRkkZnn6bjg=="
-  "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.5.tgz"
+  "integrity" "sha1-ITwbBaoRh9nJQN38CylFCVf2o7g="
+  "resolved" "https://registry.npmjs.intuit.com:443/artifactory/api/npm/npm-intuit/react-redux/-/react-redux-7.2.5.tgz"
   "version" "7.2.5"
   dependencies:
     "@babel/runtime" "^7.12.1"
@@ -9626,8 +9626,8 @@
     "strip-indent" "^3.0.0"
 
 "redux@^4.0.0", "redux@^4.1.1":
-  "integrity" "sha512-hZQZdDEM25UY2P493kPYuKqviVwZ58lEmGQNeQ+gXa+U0gYPUBf7NKYazbe3m+bs/DzM/ahN12DbF+NG8i0CWw=="
-  "resolved" "https://registry.npmjs.org/redux/-/redux-4.1.1.tgz"
+  "integrity" "sha1-dvHEObtCBD+YX72b8hmQ5gvWf0c="
+  "resolved" "https://registry.npmjs.intuit.com:443/artifactory/api/npm/npm-intuit/redux/-/redux-4.1.1.tgz"
   "version" "4.1.1"
   dependencies:
     "@babel/runtime" "^7.9.2"

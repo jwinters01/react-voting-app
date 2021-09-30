@@ -5,6 +5,7 @@ import './App.css';
 import { AppHeader } from './components/AppHeader';
 import { NavBar } from './components/NavBar';
 import { votingAppStore } from './stores/votingAppStore';
+import  {VoterTool} from './components/VoterTool'
 
 const navBarItems = [
   {
@@ -44,7 +45,7 @@ export function App() {
               <div></div>
             </Route>
             <Route path="/voters">
-              <div></div>
+              <div><VoterTool></VoterTool></div>
             </Route>
             <Route path="/ballots/:id">
               <div></div>
