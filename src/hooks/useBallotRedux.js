@@ -1,10 +1,11 @@
 import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
 
 import { useParams } from "react-router"
 
 import { electionSelector } from "../selectors/electionSelector";
+import { castVoteThunk } from "../actions/electionActions";
 
 export const useBallotRedux = () => {
   
