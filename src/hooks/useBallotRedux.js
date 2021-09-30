@@ -5,13 +5,14 @@ import { useMemo, useEffect } from 'react';
 import { useParams } from "react-router"
 
 import { electionSelector } from "../selectors/electionSelector";
+import { castVoteThunk } from "../actions/electionActions";
 
 export const useBallotRedux = () => {
   
   // election id from /ballots/:id
-  const {id} = useParams();
+  const {id: electionId} = useParams();
   
-  const {questions, electionName} = useSelector(electionSelector(id));
+  const {questions, electionName} = useSelector(electionSelector(electionId));
   
   const dispatch = useDispatch();
   
@@ -25,6 +26,7 @@ export const useBallotRedux = () => {
   return {
     questions,
     electionName,
+    electionId,
     ...actions
   }
   
