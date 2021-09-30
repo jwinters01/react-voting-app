@@ -24,10 +24,8 @@ Final project for react boot camp
     questions: [
         {
             id: ID
-            question: {
-                question: String
-                yesCount: Int
-            }
+            item: String
+            count: Int
         }
     ]
     voterIds: [ids]
@@ -37,6 +35,10 @@ Final project for react boot camp
 
 ## Workflow Flow
 
+UI Design
+https://drive.google.com/file/d/1BxsVv5LH0mc8KRaibSXXlT2fGuzHiI55/view?usp=sharing
+
+```
 
 2. 
     a. user is presented with a screen to enter voter id
@@ -68,4 +70,4 @@ Final project for react boot camp
 
     }
 
-
+```
