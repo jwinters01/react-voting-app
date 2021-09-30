@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export const BallotListItem = ({ electionName, voterIdPromptText, voteButtonText, validateVoter }) => {
-    [idInput, setIdInput] = useState("")
+    const [idInput, setIdInput] = useState("")
     const handleAttemptOpenBallot = () => {
         console.log("cast ballot")
         if (validateVoter(idInput)){

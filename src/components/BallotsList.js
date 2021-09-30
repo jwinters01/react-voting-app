@@ -2,9 +2,10 @@ import { useBallotsList } from "../hooks/useBallotsList"
 import { BallotListItem } from "./BallotListItem"
 
 export const BallotsList = () => {
-    const [elections] = useBallotsList()
+    const {elections} = useBallotsList()
+    console.log(elections)
     const validateVoter = (voterId, electionId) => {
-        election = elections.filter(election => election.id === electionId)[0]
+        const election = elections.filter(election => election.id === electionId)[0]
         return election.includes(voterId)
     }
 

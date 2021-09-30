@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import { AppHeader } from './components/AppHeader';
+import { BallotsList } from './components/BallotsList';
 import { NavBar } from './components/NavBar';
 import { votingAppStore } from './stores/votingAppStore';
 
@@ -38,7 +39,7 @@ export function App() {
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <div></div>
+              <BallotsList />
             </Route>
             <Route path="/registration">
               <div></div>
