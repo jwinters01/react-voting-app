@@ -7,6 +7,7 @@ export const Ballot = () => {
   const {
     questions,
     electionName,
+    electionId,
     castVote,
   } = useBallotRedux()
 
@@ -19,18 +20,17 @@ export const Ballot = () => {
   }
 
   const handleCastVote = (checks) => {
-    const results = questions.map((q, i) => ({
-      id: q.id,
-      checked: checks[i]
-    }))
-    castVote(results);
+    
+    // [t, f, t, f] => [1, null, 7, null] => [1, 7]
+    const results = checks.map((c, i) => c ? questions[i].id : null).filter(n => n !== null)
+    castVote(electionId, results);
 
   }
 
 
 
   /*
-  props in questions
+  questions of the election
   [
     {
       id: 1,
@@ -45,17 +45,8 @@ export const Ballot = () => {
   checks
   [true, false]
 
-  castVote results
-  [
-    {
-      id: 1,
-      checked: true
-    },
-    {
-      id: 2,
-      checked: false
-    }
-  ]
+  castVote results -  which question user selected yes and we should increment 1
+  [questionId, questionId]
   */
 
   return (
