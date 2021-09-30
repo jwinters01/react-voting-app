@@ -1,24 +1,39 @@
 import { Provider } from 'react-redux';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
+import { AppHeader } from './components/AppHeader';
+import { NavBar } from './components/NavBar';
 import { votingAppStore } from './stores/votingAppStore';
+
+const navBarItems = [
+  {
+    route: "/",
+    linkText: "Home"
+  },
+  {
+    route: "/registration",
+    linkText: "Register"
+  },
+  {
+    route: "/voters",
+    linkText: "Voters"
+  },
+  {
+    route: "/elections",
+    linkText: "Elections"
+  },
+  {
+    route: "/elections/create",
+    linkText: "Create Election"
+  }
+]
 
 export function App() {
   return (
     <div className="container">
-      <header id="page-header">
-        <h1>The Tools</h1>
-        <nav id="menubar">
-        <ul>
-          <li className="menuitem"><Link to="/">Home</Link></li>
-          <li className="menuitem"><Link to="/registration">Register</Link></li>
-          <li className="menuitem"><Link to="/voters">Voters</Link></li>
-          <li className="menuitem"><Link to="/elections">Elections</Link></li>
-          <li className="menuitem"><Link to="/elections/create">Create Election</Link></li>
-        </ul>
-      </nav>
-      </header>
+      <AppHeader headerText="Code!" />
+      <NavBar items={navBarItems} />
       <main id="content">
         <Provider store={votingAppStore}>
           <Switch>
@@ -31,10 +46,10 @@ export function App() {
             <Route path="/voters">
               <div></div>
             </Route>
-            <Route path="/elections">
+            <Route path="/elections" exact>
               <div></div>
             </Route>
-            <Route path="/elections/create">
+            <Route path="/elections/create" exact>
               <div></div>
             </Route>
           </Switch>
