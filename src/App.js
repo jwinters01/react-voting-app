@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import { AppHeader } from './components/AppHeader';
 import { NavBar } from './components/NavBar';
+import { RegistrationTool } from './components/RegistrationTool';
 import { votingAppStore } from './stores/votingAppStore';
 
 const navBarItems = [
@@ -41,7 +42,9 @@ export function App() {
               <div></div>
             </Route>
             <Route path="/registration">
-              <div></div>
+              <div>
+                <RegistrationTool />
+              </div>
             </Route>
             <Route path="/voters">
               <div></div>
