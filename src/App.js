@@ -46,10 +46,16 @@ export function App() {
             <Route path="/voters">
               <div></div>
             </Route>
+            <Route path="/ballots/:id">
+              <div></div>
+            </Route>
             <Route path="/elections" exact>
               <div></div>
             </Route>
             <Route path="/elections/create" exact>
+              <div></div>
+            </Route>
+            <Route path="/elections/:id">
               <div></div>
             </Route>
           </Switch>
