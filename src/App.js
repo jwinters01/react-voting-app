@@ -10,6 +10,7 @@ import { BallotsList } from './components/BallotsList';
 import { NavBar } from './components/NavBar';
 import { RegistrationToolContainer } from './containers/RegistrationToolContainer';
 import { votingAppStore } from './stores/votingAppStore';
+import  {VoterTool} from './components/VoterTool'
 
 const navBarItems = [
   {
@@ -51,7 +52,7 @@ export function App() {
             </Provider>
             </Route>
             <Route path="/voters">
-              <div></div>
+              <div><VoterTool/></div>
             </Route>
             <Route path="/ballots/:id">
               <Ballot />
