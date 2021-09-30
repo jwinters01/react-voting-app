@@ -52,7 +52,7 @@ export function App() {
               </div>
             </Route>
             <Route path="/voters">
-              <div><VoterTool></VoterTool></div>
+              <div><VoterTool/></div>
             </Route>
             <Route path="/ballots/:id">
               <Ballot />

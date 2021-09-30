@@ -37,7 +37,7 @@ export const VotersTable = ({
   onEditVoter: editVoter,
   onDeleteVoter: deleteVoter,
   voterSort: { col, dir },
-  onSortVoter: SortVoter,
+  onSortVoters: sortVoters,
   onSaveVoter:saveVoter,
   onCancelVoter:cancelVoter
 }) => {
@@ -45,7 +45,7 @@ export const VotersTable = ({
   sortArrow("id");
 
   const SortHeaderCol = sortHeaderColWrapper(
-    SortVoter,
+    sortVoters,
     sortArrowWrapper(col, dir)
   );
   return (
