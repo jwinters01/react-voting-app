@@ -32,7 +32,7 @@ const navBarItems = [
 export function App() {
   return (
     <div className="container">
-      <AppHeader headerText="Code!" />
+      <AppHeader headerText="Vote!" />
       <NavBar items={navBarItems} />
       <main id="content">
         <Provider store={votingAppStore}>
