@@ -14,7 +14,23 @@ const votersList = [
 
 export const VoterTool = () => {
 
+  const voters = useSelector(state => {
 
+    const { cars } = state;
+    const { col: sortCol, dir: sortDir }= state.carsSort;
+
+    return [ ...cars ].sort((a,b) => {
+      if (a[sortCol] === b[sortCol]) {
+        return 0;
+      } else {
+        if (a[sortCol] < b[sortCol]) {
+          return sortDir === 'asc' ? -1 : 1;
+        } else {
+          return sortDir === 'desc' ? -1 : 1;
+        }
+      }
+    })
+  });
   const carsSort = useSelector(state => state.carsSort);
   const actions = useMemo(() => bindActionCreators({
     onSortVoters: createSortVoterAction,

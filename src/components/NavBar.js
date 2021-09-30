@@ -5,7 +5,7 @@ export const NavBar = ({items}) => {
         <nav>
             <ul>
                 {items.map(item => {
-                    return <NavBarItem route={item.route} linkText={item.linkText} />
+                    return <NavBarItem key={item.linkText} route={item.route} linkText={item.linkText} />
                 })}
             </ul>
         </nav>

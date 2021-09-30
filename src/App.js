@@ -2,8 +2,13 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
+
+import { Ballot } from './components/Ballot';
+
 import { AppHeader } from './components/AppHeader';
+import { BallotsList } from './components/BallotsList';
 import { NavBar } from './components/NavBar';
+import { RegistrationTool } from './components/RegistrationTool';
 import { votingAppStore } from './stores/votingAppStore';
 import  {VoterTool} from './components/VoterTool'
 
@@ -33,22 +38,24 @@ const navBarItems = [
 export function App() {
   return (
     <div className="container">
-      <AppHeader headerText="Code!" />
+      <AppHeader headerText="Vote!" />
       <NavBar items={navBarItems} />
       <main id="content">
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <div></div>
+              <BallotsList />
             </Route>
             <Route path="/registration">
-              <div></div>
+              <div>
+                <RegistrationTool />
+              </div>
             </Route>
             <Route path="/voters">
               <div><VoterTool></VoterTool></div>
             </Route>
             <Route path="/ballots/:id">
-              <div></div>
+              <Ballot />
             </Route>
             <Route path="/elections" exact>
               <div></div>
