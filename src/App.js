@@ -2,7 +2,11 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
+
+import { Ballot } from './components/Ballot';
+
 import { AppHeader } from './components/AppHeader';
+import { BallotsList } from './components/BallotsList';
 import { NavBar } from './components/NavBar';
 import { RegistrationTool } from './components/RegistrationTool';
 import { votingAppStore } from './stores/votingAppStore';
@@ -39,7 +43,7 @@ export function App() {
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <div></div>
+              <BallotsList />
             </Route>
             <Route path="/registration">
               <div>
@@ -50,7 +54,7 @@ export function App() {
               <div></div>
             </Route>
             <Route path="/ballots/:id">
-              <div></div>
+              <Ballot />
             </Route>
             <Route path="/elections" exact>
               <div></div>
