@@ -9,6 +9,8 @@ import { bindActionCreators } from "redux"
 
 export const useBallotsList = () => {
     const [elections, error] = useSelector(state => [state.elections, state.error])
+    
+
     const dispatch = useDispatch()
 
     useEffect(() => dispatch(refreshElections()), [dispatch])
@@ -17,7 +19,7 @@ export const useBallotsList = () => {
         setError: createSetErrorAction,
         resetError: createResetErrorAction
     }, dispatch), [dispatch])
-    
+
     return {
         elections,
         error,

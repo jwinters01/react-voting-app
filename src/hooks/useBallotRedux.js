@@ -17,6 +17,8 @@ export const useBallotRedux = () => {
   
   const election = useSelector(electionSelector(electionId));
 
+  const voterId = useSelector(state => state.voterId)
+
   const {questions, name: electionName} = election;
   
   
@@ -31,6 +33,7 @@ export const useBallotRedux = () => {
     questions,
     electionName,
     electionId,
+    voterId,
     ...actions
   }
   
