@@ -3,6 +3,8 @@ export const SORT_VOTERS_ACTION = 'SORT_VOTERS';
 export const REFRESH_ELECTIONS_REQUEST_ACTION = 'REFRESH_ELECTIONS_REQUEST';
 export const REFRESH_ELECTIONS_DONE_ACTION = 'REFRESH_ELECTIONS_DONE';
 
+export const SET_ACTIVE_BALLOT_ACTION = 'SET_ACTIVE_BALLOT';
+export const RESET_ACTIVE_BALLOT_ACTION = 'RESET_ACTIVE_BALLOT';
 
 export const ADD_RFORM_REQUEST_ACTION = 'ADD_FORM_REQUEST';
 export const ADD_RFORM_DONE_ACTION = 'ADD_FORM_DONE';
@@ -74,3 +76,6 @@ export const addForm = (newForm) => {
   };
 
 };
+
+export const createSetActiveBallotAction = ballotId => ({type: SET_ACTIVE_BALLOT_ACTION, id:ballotId})
+export const createResetActiveBallotAction = () => ({type: RESET_ACTIVE_BALLOT_ACTION})

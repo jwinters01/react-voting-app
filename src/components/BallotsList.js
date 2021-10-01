@@ -1,10 +1,8 @@
-import { useState } from "react"
 import { useBallotsList } from "../hooks/useBallotsList"
 import { BallotListItem } from "./BallotListItem"
 
 export const BallotsList = () => {
-    const {elections, error, setError, resetError} = useBallotsList()
-    const [_, setValidatedBallot] = useState(null)
+    const {elections, error, setError, resetError, setValidatedBallot} = useBallotsList()
     console.log(elections)
     const validateVoter = (voterId, electionId) => {
         const election = elections.filter(election => election.id === electionId)[0] 

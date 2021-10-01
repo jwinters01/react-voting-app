@@ -6,11 +6,11 @@ import './App.css';
 import { Ballot } from './components/Ballot';
 
 import { AppHeader } from './components/AppHeader';
-import { BallotsList } from './components/BallotsList';
 import { NavBar } from './components/NavBar';
 import { RegistrationToolContainer } from './containers/RegistrationToolContainer';
 import { votingAppStore } from './stores/votingAppStore';
 import  {VoterTool} from './components/VoterTool'
+import { BallotsListTool } from './components/BallotsListTool';
 
 const navBarItems = [
   {
@@ -44,7 +44,7 @@ export function App() {
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <BallotsList />
+              <BallotsListTool />
             </Route>
             <Route path="/registration">
             <Provider store={votingAppStore}>
