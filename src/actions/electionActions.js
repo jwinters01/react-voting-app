@@ -44,10 +44,10 @@ export const castVoteThunk = (electionId, voterId, results) => {
       body: JSON.stringify(newElection)
     })
     
-    await voteResp.json()
+    
     
     dispatch(createCastVoteDoneAction())
-    dispatch(refreshElections())
+    await dispatch(refreshElections())
     
   }
   
