@@ -1,0 +1,82 @@
+
+
+.container {
+
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+  
+    display: grid;
+  
+    grid-template-rows: 70px 40px 1fr 50px;
+  
+    grid-template-areas:
+     "page-header"
+     "menu"
+     "content"
+     "page-footer";
+  
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  #page-header {
+    grid-area: page-header;
+  
+    background-color: darkslateblue;
+    padding: 16px;
+  }
+  
+  #page-header > h1 {
+    color: darkorange;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  #menubar {
+    grid-area: menu;
+    background-color: darkorange;
+    padding-left: 16px;
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  nav#menubar > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  nav#menubar > ul li {
+    float: left;
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav#menubar > ul li a {
+      text-decoration: none;
+  }
+  nav#menubar > ul li a:visited {
+      color: inherit;
+  }
+  nav#menubar > ul li a:hover {
+      color: slateblue;
+  }
+  
+  #content {
+    grid-area: content;
+  }
+  
+  #page-footer {
+    grid-area: page-footer;
+  
+    background-color: darkslateblue;
+    padding: 8px;
+    color: darkorange;
+    text-align: center;
+    font-size: 0.9rem;
+    padding-top: 12px;
+  }
