@@ -8,7 +8,7 @@ export const BallotsList = () => {
     console.log(elections)
     const validateVoter = (voterId, electionId) => {
         const election = elections.filter(election => election.id === electionId)[0] 
-        if (election.voterIds.includes(voterId)){
+        if (!election.voterIds.includes(voterId)){
             resetError()
             setValidatedBallot(electionId)
         }else{
