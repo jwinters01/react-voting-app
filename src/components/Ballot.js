@@ -5,16 +5,23 @@ import { useBallotRedux } from "../hooks/useBallotRedux"
 export const Ballot = () => {
 
   const {
-    questions=[],
-    electionName="",
+    questions = [],
+    electionName = "",
     electionId,
     voterId,
     castVote,
     backToMain,
   } = useBallotRedux()
 
-  // TODO
-  const [checks, setChecks] = useState(new Array(1000).fill(false))
+  // How to improve ?
+  // the array length depends on the data and the state is created as soon as the component renders, but useEffect runs at last to retrieve the data
+  // const [checks, setChecks] = useState(new Array(questions.length).fill(false))
+  
+  const [checks, setChecks] = useState([])
+
+  if (checks.length===0) {
+    setChecks(new Array(questions.length).fill(false))
+  }
 
   const handleOnChange = (idx) => {
     setChecks(
@@ -23,7 +30,7 @@ export const Ballot = () => {
   }
 
   const handleCastVote = (checks) => {
-    
+
     // [t, f, t, f] => [1, null, 7, null] => [1, 7]
     const results = checks.map((c, i) => c ? questions[i].id : null).filter(n => n !== null)
     castVote(electionId, voterId, results);
