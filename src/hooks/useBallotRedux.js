@@ -9,11 +9,16 @@ import { castVoteThunk } from "../actions/electionActions";
 
 export const useBallotRedux = () => {
   const dispatch = useDispatch()
+
   useEffect(() => dispatch(refreshElections()), [dispatch])
+  
   // election id from /ballots/:id
   const {id: electionId} = useParams();
   
-  const {questions, electionName} = useSelector(electionSelector(electionId));
+  const election = useSelector(electionSelector(electionId));
+
+  const {questions, name: electionName} = election;
+  
   
   const actions = useMemo(() => bindActionCreators({
     castVote: castVoteThunk,

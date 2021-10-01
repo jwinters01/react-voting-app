@@ -1,7 +1,10 @@
 
 
 export const electionSelector = (id) => {
-  return state => state.elections.find(e => e.id === id)
+  return state => {
+    const elections = state.elections
+    return elections.find( e => e.id === parseInt(id) ) || {}
+  }
 }
 
 // export const questionCountSelector = (electionId, questionId) => {

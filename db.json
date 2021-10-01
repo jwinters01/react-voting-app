@@ -37,7 +37,7 @@
           "count": 30
         }
       ],
-      "voterIds": [1,2]
+      "voterIds": []
     },
     {
       "id": 2,
@@ -54,7 +54,7 @@
           "count": 100
         }
       ],
-      "voterIds": [1]
+      "voterIds": []
     }
   ]
 }
