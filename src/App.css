@@ -25,11 +25,22 @@
     background-color: darkslateblue;
     padding: 16px;
   }
+  #page-header img {
+    height: 50px;
+    display: inline;
+  }
+  #page-header h2 {
+    margin-left: 5px;
+    display: inline;
+    color: darkorange;
+  }
   
   #page-header > h1 {
     color: darkorange;
     font-size: 2.5rem;
     font-weight: bold;
+    display: inline;
+    margin-left: 5px;
   }
   
   #menubar {
@@ -86,6 +97,11 @@
   #content button:hover
  {
      background-color: slateblue;
+ }
+
+ #content label {
+   display: block;
+   margin: 5px;
  }
   #page-footer {
     grid-area: page-footer;
