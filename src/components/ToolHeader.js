@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export const ToolHeader = ({title}) => {
 
 return (
-    <header>
+    <header className="tool-header">
         <h1>{title}</h1>
     </header>
 )

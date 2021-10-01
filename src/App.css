@@ -68,8 +68,25 @@
   
   #content {
     grid-area: content;
+    background-color: snow;
   }
-  
+  #content button {
+    background-color: darkslateblue; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  #content button:hover
+ {
+     background-color: slateblue;
+ }
   #page-footer {
     grid-area: page-footer;
   
@@ -79,4 +96,11 @@
     text-align: center;
     font-size: 0.9rem;
     padding-top: 12px;
+  }
+
+  .tool-header{
+      font-size: 1.5em;
+      font-weight: bold;
+      padding-top: .5em;
+      padding-bottom: .5em;
   }
