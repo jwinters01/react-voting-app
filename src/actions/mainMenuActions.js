@@ -22,8 +22,7 @@ export const createRefreshVotersDoneAction = (voters) => ({ type: REFRESH_VOTERS
 
 
 export const createSortVotersAction = (col) => ({ type: SORT_VOTERS_ACTION, col });
-export const createRefreshElectionsRequestAction = () => ({ type: REFRESH_ELECTIONS_REQUEST_ACTION });
-export const createRefreshElectionsDoneAction = (elections) => ({ type: REFRESH_ELECTIONS_DONE_ACTION, elections });
+
 
 
 export const refreshVoters = () => {
