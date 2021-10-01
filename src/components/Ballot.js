@@ -13,10 +13,10 @@ export const Ballot = () => {
     backToMain,
   } = useBallotRedux()
 
-  // How to improve ?
+  // NOTE: How to improve ?
   // the array length depends on the data and the state is created as soon as the component renders, but useEffect runs at last to retrieve the data
   // const [checks, setChecks] = useState(new Array(questions.length).fill(false))
-  
+
   const [checks, setChecks] = useState([])
 
   if (checks.length===0) {
