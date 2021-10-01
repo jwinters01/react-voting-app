@@ -40,7 +40,7 @@ const navBarItems = [
 export function App() {
   return (
     <div className="container">
-      <AppHeader headerText="Vote!" />
+      <AppHeader headerText="Vote!" sloganText=" ..Carpe Diem"/>
       <NavBar items={navBarItems} />
       <main id="content">
         <Provider store={votingAppStore}>
@@ -72,7 +72,7 @@ export function App() {
         </Provider>
       </main>
       <footer id="page-footer">
-        <small>Footer</small>
+        <small>2021 Elections</small>
       </footer>
     </div>
   );
