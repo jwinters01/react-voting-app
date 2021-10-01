@@ -3,13 +3,13 @@ import { useBallotsList } from "../hooks/useBallotsList"
 import { BallotListItem } from "./BallotListItem"
 
 export const BallotsList = () => {
-    const {elections, error, setError} = useBallotsList()
+    const {elections, error, setError, resetError} = useBallotsList()
     const [_, setValidatedBallot] = useState(null)
     console.log(elections)
     const validateVoter = (voterId, electionId) => {
         const election = elections.filter(election => election.id === electionId)[0] 
-        if (election.voterIds.includes(voterId)){
-            setError("")
+        if (!election.voterIds.includes(voterId)){
+            resetError()
             setValidatedBallot(electionId)
         }else{
             console.log("invalid voter ID")
