@@ -8,7 +8,7 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
         change,
         resetRegistrationForm,
       ] = useRegistrationForm({
-        firstname: '', lastname: '', address: '', city: '', birthdate: '', email: '', phone: '',
+        firstName: '', lastName: '', address: '', city: '', birthdate: '', email: '', phone: '',
       });
 
       const submitForm = () => {
@@ -22,11 +22,11 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
         <form>
         <label>
             First Name:
-            <input type="text" name="firstname" value={registrationForm.firstname} onChange={change}></input>
+            <input type="text" name="firstName" value={registrationForm.firstName} onChange={change}></input>
         </label>
         <label>
             Last Name:
-            <input type="text" name="lastname" value={registrationForm.lastname} onChange={change}></input>
+            <input type="text" name="lastName" value={registrationForm.lastName} onChange={change}></input>
         </label>
         <label>
             Address:

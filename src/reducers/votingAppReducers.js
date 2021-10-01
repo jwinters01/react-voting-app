@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import {SORT_VOTERS_ACTION,REFRESH_ELECTIONS_DONE_ACTION,REFRESH_VOTERS_DONE_ACTION} from  "./../actions/mainMenuActions"
+import {SORT_VOTERS_ACTION,REFRESH_ELECTIONS_DONE_ACTION,REFRESH_VOTERS_DONE_ACTION,EDIT_VOTER_ACTION,CANCEL_VOTER_ACTION} from  "./../actions/mainMenuActions"
 
 export const voterSortReducer = (votersSort = { col: 'id', dir: 'asc' }, action) => {
   if (action.type === SORT_VOTERS_ACTION) {
@@ -22,6 +22,21 @@ export const voterReducer  = (voters = [], action) => {
       return voters;
   }
 };
+export const editVoterIdReducer = (editVoterId = -1, action) => {
+
+  if (action.type === EDIT_VOTER_ACTION) {
+    return action.voterId;
+  }
+
+  if ([
+    REFRESH_VOTERS_DONE_ACTION, CANCEL_VOTER_ACTION
+  ].includes(action.type)) {
+    return -1;
+  }
+
+  return editVoterId;
+
+};
 
 export const electionsReducer = (elections=[], action) => {
     switch (action.type) {
@@ -34,6 +49,8 @@ export const electionsReducer = (elections=[], action) => {
 
 export const votingAppReducer = combineReducers({
     voters: voterReducer,
-    voterSort : voterSortReducer
+    voterSort : voterSortReducer,
+    editVoterId: editVoterIdReducer,
+
 })
 

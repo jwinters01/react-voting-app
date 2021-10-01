@@ -6,6 +6,10 @@ import {  useEffect } from "react";
 import {
   createSortVotersAction,
   refreshVoters,
+  createCancelVoterAction,
+  createEditVoterAction,
+  removeVoter,
+  replaceVoter
 } from "../actions/mainMenuActions";
 
 export const VoterTableContainer = () => {
@@ -27,10 +31,14 @@ export const VoterTableContainer = () => {
   });
 
   const voterSort = useSelector((state) => state.voterSort);
-
+const  editVoterId   = useSelector((state)=>state.editVoterId);
   const actions = bindActionCreators(
     {
       onSortVoters: createSortVotersAction,
+      onCancelVoter: createCancelVoterAction,
+      onEditVoter: createEditVoterAction,
+      onDeleteVoter: removeVoter,
+      onSaveVoter: replaceVoter
     },
     useDispatch()
   );
@@ -38,5 +46,5 @@ export const VoterTableContainer = () => {
 
   useEffect(() => dispatch(refreshVoters()), [dispatch]);
 
-  return <VotersTable voters={voters} voterSort={voterSort} {...actions} />;
+  return <VotersTable voters={voters} editVoterId={editVoterId} voterSort={voterSort} {...actions} />;
 };
