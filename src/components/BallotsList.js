@@ -1,14 +1,20 @@
 import { useBallotsList } from "../hooks/useBallotsList"
 import { BallotListItem } from "./BallotListItem"
+import { useHistory } from 'react-router-dom';
 
 export const BallotsList = () => {
-    const {elections, error, setError, resetError, setValidatedBallot} = useBallotsList()
+    const {elections, error, setError, resetError, inputVoterId} = useBallotsList()
+    // const [_, setValidatedBallot] = useState(null)
+    const history = useHistory();
+
     console.log(elections)
     const validateVoter = (voterId, electionId) => {
         const election = elections.filter(election => election.id === electionId)[0] 
         if (!election.voterIds.includes(voterId)){
             resetError()
-            setValidatedBallot(electionId)
+            // setValidatedBallot(electionId)
+            history.push(`/ballots/${electionId}`);
+            inputVoterId(voterId);
         }else{
             console.log("invalid voter ID")
             setError("Invalid Voter ID")

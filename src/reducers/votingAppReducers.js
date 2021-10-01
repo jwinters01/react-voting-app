@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { SORT_VOTERS_ACTION, REFRESH_VOTERS_DONE_ACTION, REFRESH_ELECTIONS_DONE_ACTION, SET_ERROR_ACTION, RESET_ERROR_ACTION, SET_ACTIVE_BALLOT_ACTION, RESET_ACTIVE_BALLOT_ACTION } from "../actions/mainMenuActions";
+
+import {SORT_VOTERS_ACTION,REFRESH_ELECTIONS_DONE_ACTION,REFRESH_VOTERS_DONE_ACTION,EDIT_VOTER_ACTION,CANCEL_VOTER_ACTION,SET_ERROR_ACTION, RESET_ERROR_ACTION, INPUT_VOTER_ID_ACTION} from  "./../actions/mainMenuActions"
 
 const DEFAULT_ERROR_STATE=""
-const DEFAULT_ACTIVE_BALLOT=-1
 
 export const voterSortReducer = (votersSort = { col: 'id', dir: 'asc' }, action) => {
   if (action.type === SORT_VOTERS_ACTION) {
@@ -25,6 +25,21 @@ export const voterReducer  = (voters = [], action) => {
       return voters;
   }
 };
+export const editVoterIdReducer = (editVoterId = -1, action) => {
+
+  if (action.type === EDIT_VOTER_ACTION) {
+    return action.voterId;
+  }
+
+  if ([
+    REFRESH_VOTERS_DONE_ACTION, CANCEL_VOTER_ACTION
+  ].includes(action.type)) {
+    return -1;
+  }
+
+  return editVoterId;
+
+};
 
 export const electionsReducer = (elections=[], action) => {
     switch (action.type) {
@@ -46,22 +61,23 @@ export const errorReducer = (error=DEFAULT_ERROR_STATE, action) => {
     }
 }
 
-export const activeBallotReducer = (id=DEFAULT_ACTIVE_BALLOT, action) => {
-  switch(action.type) {
-    case SET_ACTIVE_BALLOT_ACTION:
-      return action.id
-    case RESET_ACTIVE_BALLOT_ACTION:
-      return DEFAULT_ACTIVE_BALLOT
-    default:
-      return id
+export const voterIdReducer = (voterId=-1, action) => {
+  if (action.type === INPUT_VOTER_ID_ACTION) {
+    return action.voterId;
+  } else {
+    return voterId;
   }
 }
 
 export const votingAppReducer = combineReducers({
     elections: electionsReducer,
-    activeBallot: activeBallotReducer,
     error: errorReducer,
     voters: voterReducer,
-    voterSort : voterSortReducer
+    voterSort : voterSortReducer,
+
+    voterId: voterIdReducer,
+
+    editVoterId: editVoterIdReducer,
+
 })
 

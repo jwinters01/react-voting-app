@@ -11,37 +11,43 @@ export const createCastVoteDoneAction = () => ({
   type: CAST_VOTE_DONE_ACTION
 })
 
-export const castVoteThunk = (electionId, results) => {
+export const castVoteThunk = (electionId, voterId, results) => {
 
 
   return async dispatch => {
 
     dispatch(createCastVoteRequestAction());
 
-    /** pitfall: do not use forEach here:
-    forEach does not wait for promises. Make sure you are aware of the implications while using promises (or async functions) as forEach callback.
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-     */
-    for (const questionId of results) {
-      
-      // http://localhost:3060/elections/1/questions/1
-      const url = 'http://localhost:3060/elections/' + encodeURIComponent(electionId) + '/questions/' + encodeURIComponent(questionId) + '/count'
+    const urlGetElection = 'http://localhost:3060/elections/' + encodeURIComponent(electionId);
 
-      const countResp = await fetch(url)
+    const electionResp = await fetch(urlGetElection);
 
-      const count = await countResp.json()
-      
-      const voteResp = await fetch(url, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(count + 1)
-      })
+    const election = await electionResp.json()
 
-      const res = await voteResp.json()
+    const {questions, voterIds} = election
 
-      dispatch(createCastVoteDoneAction(res))
-      dispatch(refreshElections())
+    const newElection = {
+      ...election,
+      questions: questions.map(
+        q => results.includes(q.id) ? 
+        { ...q, count: q.count + 1 } : 
+        q),
+      voterIds: voterIds.includes(voterId) ? voterIds : [
+        ...voterIds,
+        voterId
+      ]
     }
+
+    const voteResp = await fetch(urlGetElection, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newElection)
+    })
+    
+    await voteResp.json()
+    
+    dispatch(createCastVoteDoneAction())
+    dispatch(refreshElections())
     
   }
   

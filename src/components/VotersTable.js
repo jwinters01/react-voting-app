@@ -64,7 +64,7 @@ export const VotersTable = ({
             <VoterEditRow
               key={voter.id}
               voter={voter}
-              onSavevVoter={saveVoter}
+              onSaveVoter={saveVoter}
               onCancelVoter={cancelVoter}
             />
           ) : (

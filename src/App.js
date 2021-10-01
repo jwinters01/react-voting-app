@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
-import { Ballot } from './components/Ballot';
 
 import { AppHeader } from './components/AppHeader';
 import { NavBar } from './components/NavBar';
@@ -55,7 +54,7 @@ export function App() {
               <div><VoterTool/></div>
             </Route>
             <Route path="/ballots/:id">
-              <Ballot />
+              {/* <Ballot /> */}
             </Route>
             <Route path="/elections" exact>
               <div></div>
