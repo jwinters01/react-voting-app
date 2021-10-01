@@ -71,7 +71,7 @@ export function App() {
         </Provider>
       </main>
       <footer id="page-footer">
-        <small>Footer</small>
+        <small>2021 Elections</small>
       </footer>
     </div>
   );
