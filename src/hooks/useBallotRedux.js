@@ -11,7 +11,6 @@ import { castVoteThunk } from "../actions/electionActions";
 export const useBallotRedux = () => {
   const dispatch = useDispatch()
 
-
   // election id from /ballots/:id
   const { id: electionId } = useParams();
 
@@ -31,6 +30,10 @@ export const useBallotRedux = () => {
   const backToMain = () => {
     history.push(`/`);
   }
+  if (voterId === -1) {
+    backToMain()
+  }
+  
 
   useEffect(
     () => {

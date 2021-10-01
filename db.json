@@ -29,18 +29,15 @@
         {
           "id": 1,
           "item": "Kitty?",
-          "count": 1
+          "count": 0
         },
         {
           "id": 2,
           "item": "Puppy?",
-          "count": 2
+          "count": 0
         }
       ],
-      "voterIds": [
-        3,
-        6
-      ]
+      "voterIds": []
     },
     {
       "id": 2,
