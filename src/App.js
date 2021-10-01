@@ -12,6 +12,7 @@ import  {VoterTool} from './components/VoterTool'
 import { BallotsListTool } from './components/BallotsListTool';
 import { Ballot } from './components/Ballot';
 import { ElectionTool } from './components/ElectionTool';
+import { ElectionCreate } from './components/ElectionCreate';
 
 const navBarItems = [
   {
@@ -62,7 +63,7 @@ export function App() {
               <ElectionTool />
             </Route>
             <Route path="/elections/create" exact>
-              <div></div>
+              <ElectionCreate />
             </Route>
             <Route path="/elections/:id">
               <div></div>
