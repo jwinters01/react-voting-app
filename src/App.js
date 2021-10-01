@@ -44,7 +44,7 @@ export function App() {
         <Provider store={votingAppStore}>
           <Switch>
             <Route path="/" exact>
-              <BallotsList />
+              {/* <BallotsList /> */}
             </Route>
             <Route path="/registration">
             <Provider store={votingAppStore}>
@@ -55,7 +55,7 @@ export function App() {
               <div><VoterTool/></div>
             </Route>
             <Route path="/ballots/:id">
-              <Ballot />
+              {/* <Ballot /> */}
             </Route>
             <Route path="/elections" exact>
               <div></div>

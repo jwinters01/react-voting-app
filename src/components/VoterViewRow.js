@@ -1,5 +1,5 @@
 
-export const VoterViewRow = ({ voter }) => {
+export const VoterViewRow = ({ voter,onEditVoter: editVoter, onDeleteVoter: deleteVoter }) => {
 
     return (
       <tr>
@@ -12,8 +12,8 @@ export const VoterViewRow = ({ voter }) => {
         <td>{voter.email}</td>
         <td>{voter.phone}</td>
         <td>
-          <button type="button">Edit</button>
-          <button type="button" >Delete</button>
+          <button type="button"  onClick={() => editVoter(voter.id)}>Edit</button>
+          <button type="button"  onClick={() => deleteVoter(voter.id)} >Delete</button>
         </td>
       </tr>
     );
