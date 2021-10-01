@@ -51,7 +51,6 @@ export const Ballot = () => {
   castVote results -  which question user selected yes and we should increment 1
   [questionId, questionId]
   */
-
   return (
     <>
       <h2>Ballot for {electionName}</h2>

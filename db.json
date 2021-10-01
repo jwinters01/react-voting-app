@@ -29,15 +29,18 @@
         {
           "id": 1,
           "item": "Kitty?",
-          "count": 20
+          "count": 1
         },
         {
           "id": 2,
           "item": "Puppy?",
-          "count": 30
+          "count": 2
         }
       ],
-      "voterIds": []
+      "voterIds": [
+        3,
+        6
+      ]
     },
     {
       "id": 2,
@@ -46,12 +49,12 @@
         {
           "id": 1,
           "item": "BMW?",
-          "count": 50
+          "count": 0
         },
         {
           "id": 2,
           "item": "Audi?",
-          "count": 100
+          "count": 0
         }
       ],
       "voterIds": []

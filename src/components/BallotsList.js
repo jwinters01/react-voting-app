@@ -7,7 +7,6 @@ export const BallotsList = () => {
     // const [_, setValidatedBallot] = useState(null)
     const history = useHistory();
 
-    console.log(elections)
     const validateVoter = (voterId, electionId) => {
         const election = elections.filter(election => election.id === electionId)[0] 
         if (!election.voterIds.includes(voterId)){
@@ -16,11 +15,9 @@ export const BallotsList = () => {
             history.push(`/ballots/${electionId}`);
             inputVoterId(voterId);
         }else{
-            console.log("invalid voter ID")
             setError("Invalid Voter ID")
         }
     }
-    console.log(`error: ${error}`)
     return (
         <>
             {error && <div className="error">{error}</div>}
