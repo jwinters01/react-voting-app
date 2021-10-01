@@ -11,7 +11,7 @@ export const createCastVoteDoneAction = () => ({
   type: CAST_VOTE_DONE_ACTION
 })
 
-export const castVoteThunk = (electionId, results) => {
+export const castVoteThunk = (electionId, voterId, results) => {
 
 
   return async dispatch => {
@@ -37,11 +37,29 @@ export const castVoteThunk = (electionId, results) => {
         body: JSON.stringify(count + 1)
       })
 
-      const res = await voteResp.json()
+      await voteResp.json()
 
-      dispatch(createCastVoteDoneAction(res))
-      dispatch(refreshElections())
     }
+
+    const urlVoterIds = 'http://localhost:3060/elections/' + encodeURIComponent(electionId)
+
+    const voterIdsResp = await fetch(urlVoterIds)
+
+    const voterIds = await voterIdsResp.json()    
+    
+    await fetch(urlVoterIds, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(
+        [
+          ...voterIds,
+          voterId,
+        ]
+      )
+    })
+
+    dispatch(createCastVoteDoneAction())
+    dispatch(refreshElections())
     
   }
   
