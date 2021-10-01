@@ -10,9 +10,11 @@ export const Ballot = () => {
     electionId,
     voterId,
     castVote,
+    backToMain,
   } = useBallotRedux()
 
-  const [checks, setChecks] = useState(new Array(questions.length).fill(false))
+  // TODO
+  const [checks, setChecks] = useState(new Array(1000).fill(false))
 
   const handleOnChange = (idx) => {
     setChecks(
@@ -25,7 +27,7 @@ export const Ballot = () => {
     // [t, f, t, f] => [1, null, 7, null] => [1, 7]
     const results = checks.map((c, i) => c ? questions[i].id : null).filter(n => n !== null)
     castVote(electionId, voterId, results);
-
+    backToMain()
   }
 
 

@@ -10,6 +10,10 @@ export const ADD_RFORM_DONE_ACTION = 'ADD_FORM_DONE';
 export const SET_ERROR_ACTION = 'SET_ERROR';
 export const RESET_ERROR_ACTION = 'RESET_ERROR';
 
+export const INPUT_VOTER_ID_ACTION = 'INPUT_VOTER_ID'
+
+export const createInputVoterIdAction = (voterId) => ({ type: INPUT_VOTER_ID_ACTION, voterId})
+
 export const createRefreshElectionsRequestAction = () => ({ type: REFRESH_ELECTIONS_REQUEST_ACTION });
 export const createRefreshElectionsDoneAction = (elections) => ({ type: REFRESH_ELECTIONS_DONE_ACTION, elections });
 

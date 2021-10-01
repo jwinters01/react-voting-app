@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SORT_VOTERS_ACTION, REFRESH_VOTERS_DONE_ACTION, REFRESH_ELECTIONS_DONE_ACTION, SET_ERROR_ACTION, RESET_ERROR_ACTION } from "../actions/mainMenuActions";
+import { SORT_VOTERS_ACTION, REFRESH_VOTERS_DONE_ACTION, REFRESH_ELECTIONS_DONE_ACTION, SET_ERROR_ACTION, RESET_ERROR_ACTION, INPUT_VOTER_ID_ACTION } from "../actions/mainMenuActions";
 
 const DEFAULT_ERROR_STATE=""
 
@@ -45,10 +45,19 @@ export const errorReducer = (error=DEFAULT_ERROR_STATE, action) => {
     }
 }
 
+export const voterIdReducer = (voterId=-1, action) => {
+  if (action.type === INPUT_VOTER_ID_ACTION) {
+    return action.voterId;
+  } else {
+    return voterId;
+  }
+}
+
 export const votingAppReducer = combineReducers({
     elections: electionsReducer,
     error: errorReducer,
     voters: voterReducer,
-    voterSort : voterSortReducer
+    voterSort : voterSortReducer,
+    voterId: voterIdReducer,
 })
 

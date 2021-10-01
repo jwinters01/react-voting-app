@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { useEffect, useMemo } from "react"
-import { createSetErrorAction, createResetErrorAction } from "../actions/mainMenuActions"
+import { createSetErrorAction, createResetErrorAction, createInputVoterIdAction } from "../actions/mainMenuActions"
 
 import { refreshElections } from "../actions/mainMenuActions"
 import { bindActionCreators } from "redux"
@@ -17,7 +17,8 @@ export const useBallotsList = () => {
 
     const actions = useMemo(() => bindActionCreators({
         setError: createSetErrorAction,
-        resetError: createResetErrorAction
+        resetError: createResetErrorAction,
+        inputVoterId: createInputVoterIdAction,
     }, dispatch), [dispatch])
 
     return {
