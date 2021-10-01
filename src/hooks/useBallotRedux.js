@@ -11,9 +11,9 @@ export const useBallotRedux = () => {
   const dispatch = useDispatch()
   useEffect(() => dispatch(refreshElections()), [dispatch])
   // election id from /ballots/:id
-  const {id} = useParams();
+  const {id: electionId} = useParams();
   
-  const {questions, electionName} = useSelector(electionSelector(id));
+  const {questions, electionName} = useSelector(electionSelector(electionId));
   
   const actions = useMemo(() => bindActionCreators({
     castVote: castVoteThunk,
@@ -25,6 +25,7 @@ export const useBallotRedux = () => {
   return {
     questions,
     electionName,
+    electionId,
     ...actions
   }
   

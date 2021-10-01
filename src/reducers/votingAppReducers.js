@@ -1,7 +1,29 @@
 import { combineReducers } from "redux";
-import { REFRESH_ELECTIONS_DONE_ACTION, SET_ERROR_ACTION, RESET_ERROR_ACTION } from "../actions/mainMenuActions";
+import { SORT_VOTERS_ACTION, REFRESH_VOTERS_DONE_ACTION, REFRESH_ELECTIONS_DONE_ACTION, SET_ERROR_ACTION, RESET_ERROR_ACTION } from "../actions/mainMenuActions";
 
 const DEFAULT_ERROR_STATE=""
+
+export const voterSortReducer = (votersSort = { col: 'id', dir: 'asc' }, action) => {
+  if (action.type === SORT_VOTERS_ACTION) {
+    if (action.col === votersSort.col) {
+      return { col: votersSort.col, dir: votersSort.dir === 'asc' ? 'desc' : 'asc' };
+    } else {
+      return { col: action.col, dir: 'asc' };
+    };
+  }
+
+  return votersSort;
+};
+
+export const voterReducer  = (voters = [], action) => {
+
+  switch (action.type) {
+    case  REFRESH_VOTERS_DONE_ACTION:
+      return action.voters
+    default:
+      return voters;
+  }
+};
 
 export const electionsReducer = (elections=[], action) => {
     switch (action.type) {
@@ -25,5 +47,8 @@ export const errorReducer = (error=DEFAULT_ERROR_STATE, action) => {
 
 export const votingAppReducer = combineReducers({
     elections: electionsReducer,
-    error: errorReducer
+    error: errorReducer,
+    voters: voterReducer,
+    voterSort : voterSortReducer
 })
+

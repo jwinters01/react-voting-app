@@ -12,7 +12,7 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
       });
 
       const submitForm = () => {
-
+          
         onSubmitForm({ ...registrationForm });
     
         resetRegistrationForm();
@@ -51,7 +51,4 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
         <button type="button" onClick={submitForm}>{buttonText}</button>
     </form>
     )
-
-}
-
-// first name, last name, address, county/city, birthdate, email, and phone
+};
