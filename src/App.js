@@ -39,7 +39,7 @@ const navBarItems = [
 export function App() {
   return (
     <div className="container">
-      <AppHeader headerText="Vote!" />
+      <AppHeader headerText="Vote!" sloganText=" ..Carpe Diem"/>
       <NavBar items={navBarItems} />
       <main id="content">
         <Provider store={votingAppStore}>
