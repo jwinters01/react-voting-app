@@ -17,13 +17,6 @@ export const REPLACE_VOTER_REQUEST_ACTION = "REPLACE_VOTER_REQUEST"
 export const REPLACE_VOTER_DONE_ACTION = "REPLACE_VOTER_DONE"
 
 
-export const createRefreshElectionsRequestAction = () => ({
-  type: REFRESH_ELECTIONS_REQUEST_ACTION,
-});
-export const createRefreshElectionsDoneAction = (elections) => ({
-  type: REFRESH_ELECTIONS_DONE_ACTION,
-  elections,
-});
 export const createAddFormRequestAction = (newForm) => ({
   type: ADD_RFORM_REQUEST_ACTION,
   rform: newForm,
@@ -73,35 +66,13 @@ export const refreshVoters = () => {
       .then((voters) => dispatch(createRefreshVotersDoneAction(voters)));
   };
 };
+export const SET_ERROR_ACTION = 'SET_ERROR';
+export const RESET_ERROR_ACTION = 'RESET_ERROR';
 
-export const refreshElections = () => {
-  // this function being returned is the thunk action
-  return (dispatch) => {
-    dispatch(createRefreshElectionsRequestAction());
+export const createRefreshElectionsRequestAction = () => ({ type: REFRESH_ELECTIONS_REQUEST_ACTION });
+export const createRefreshElectionsDoneAction = (elections) => ({ type: REFRESH_ELECTIONS_DONE_ACTION, elections });
 
-    return fetch("http://localhost:3060/elections")
-      .then((res) => res.json())
-      .then((elections) =>
-        dispatch(createRefreshElectionsDoneAction(elections))
-      );
-  };
-};
 
-export const addForm = (newForm) => {
-  return async (dispatch) => {
-    dispatch(createAddFormRequestAction(newForm));
-
-    const res = await fetch("http://localhost:3060/voters", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newForm),
-    });
-
-    const addedForm = await res.json();
-
-    dispatch(createAddFormDoneAction(addedForm));
-  };
-};
 
 export const removeVoter = (voterId) => {
   return async (dispatch) => {
@@ -132,6 +103,40 @@ export const replaceVoter = (voter) => {
 
     dispatch(createReplaceVoterDoneAction());
     dispatch(refreshVoters());
+
+
+  }
+}
+export const refreshElections = () => {
+    // this function being returned is the thunk action
+  return dispatch => {
+    dispatch(createRefreshElectionsRequestAction());
+
+    return fetch('http://localhost:3060/elections')
+      .then(res => res.json())
+      .then(elections => dispatch(createRefreshElectionsDoneAction(elections)));
+  };
+};
+
+export const createSetErrorAction = (message) => ({type: SET_ERROR_ACTION, message})
+export const createResetErrorAction = () => ({type: RESET_ERROR_ACTION})
+
+export const addForm = (newForm) => {
+
+  return async dispatch => {
+
+    dispatch(createAddFormRequestAction(newForm));
+
+    const res = await fetch('http://localhost:3060/voters',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newForm),
+      });
+
+    const addedForm = await res.json();
+
+    dispatch(createAddFormDoneAction(addedForm));
   };
 
 };

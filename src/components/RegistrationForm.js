@@ -1,5 +1,5 @@
 import { useRegistrationForm } from "../hooks/useRegistrationForm";
-
+import { useHistory } from 'react-router-dom';
 
 export const RegistrationForm = ({buttonText, onSubmitForm}) => {
 
@@ -12,10 +12,16 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
       });
 
       const submitForm = () => {
-          
+
         onSubmitForm({ ...registrationForm });
     
         resetRegistrationForm();
+      };
+
+      const history = useHistory();
+
+      const onButtonClickHandler = () => {
+        window.alert('Thanks for registering!')
       };
 
     return (
@@ -48,7 +54,13 @@ export const RegistrationForm = ({buttonText, onSubmitForm}) => {
             Phone:
             <input type="text" name="phone" value={registrationForm.phone} onChange={change}></input>
         </label>
-        <button type="button" onClick={submitForm}>{buttonText}</button>
+        
+
+        <button type="button" onClick={() => {
+          submitForm();
+          onButtonClickHandler();
+          history.push("/");
+        }}>{buttonText}</button>
     </form>
     )
 };

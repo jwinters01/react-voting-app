@@ -5,8 +5,8 @@ import { useBallotRedux } from "../hooks/useBallotRedux"
 export const Ballot = () => {
 
   const {
-    questions,
-    electionName,
+    questions=[],
+    electionName="",
     electionId,
     castVote,
   } = useBallotRedux()
